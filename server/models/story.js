@@ -1,0 +1,1 @@
+var Story = "issa story"
