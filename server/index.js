@@ -22,9 +22,16 @@ db.once('open', function () {
     const storySchema = new mongoose.Schema({
         name: String,
         type: String,
-        finished: Boolean
+        isFinished: Boolean
     })
+    storySchema.methods.tell = function () {
+        const storyName = this.name
+        console.log(`I am the story known as ${storyName}, I am a ${type}!`)
+    }
     const Story = mongoose.model('Story', storySchema);
-    const anInfiniteHeart = new Story({ name: 'An Infinite Heart', type: 'Novel', finished: false })
-    console.log(anInfiniteHeart.name);
+    const anInfiniteHeart = new Story({ name: 'An Infinite Heart', type: 'Novel', isFinished: false })
+    anInfiniteHeart.save(function (err, story) {
+        if (err) return console.error(err);
+        console.log(`I, ${story.name} have been added to the great store of stories!`)
+    })
 })
