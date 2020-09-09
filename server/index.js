@@ -2,8 +2,11 @@ const express = require('express')
 const app = express()
 const port = 3001
 const mongoose = require('mongoose')
+const cors = require('cors');
 
 require('dotenv').config()
+
+app.use(cors())
 
 app.get('/', (req, res) => {
     res.send('Welcome to Anansi!')
