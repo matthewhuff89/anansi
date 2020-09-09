@@ -7,8 +7,8 @@ function App() {
     <div className="App">
       <div>
         <h1>Anansi welcomes you to his Library :)</h1>
+        <StoryForm />
       </div>
-      <StoryForm />
     </div>
   );
 }
