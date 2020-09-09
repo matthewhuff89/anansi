@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import './StoryForm.css';
 
 export default function StoryForm() {
@@ -22,6 +23,7 @@ export default function StoryForm() {
                 </label>
                 <button onClick={(e) => { 
                     e.preventDefault();
+                    axios.get('http://localhost:3001/').then((response) => console.log(response.data))
                     console.log(name, type, isFinished);
                 }}>Add Story To My Library</button>
             </form>
